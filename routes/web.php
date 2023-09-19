@@ -13,7 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::redirect('/', '/dashboard-general-dashboard');
+Route::get('/', function(){
+    return view('pages.app.dashboard-siakad', ['type_menu' => 'dashboard']);
+})->name('login');
+Route::get('/login', function(){
+    return view('pages.auth.auth-login');
+})->name('login');
+
+Route::get('/register', function(){
+    return view('pages.auth.auth-register');
+})->name('register');
 
 // Dashboard
 Route::get('/dashboard-general-dashboard', function () {
